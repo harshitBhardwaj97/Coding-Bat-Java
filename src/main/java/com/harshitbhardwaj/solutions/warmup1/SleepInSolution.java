@@ -6,14 +6,12 @@ public class SleepInSolution {
     public static boolean sleepIn(boolean weekday, boolean vacation) {
         return !weekday || vacation;
 
-    /*
-    if(!weekday || vacation){
-    return true;
-    }
-    else {
-    return false;
-    }
-     */
-
+        /*
+        if (!weekday || vacation) {
+            return true;
+        } else {
+            return false;
+        }
+        */
     }
 }

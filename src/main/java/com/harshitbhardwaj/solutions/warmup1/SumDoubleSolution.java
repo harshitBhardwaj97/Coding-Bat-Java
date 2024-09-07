@@ -10,13 +10,12 @@ public class SumDoubleSolution {
         return a == b ? 2 * (a + b) : (a + b);
 
         /*
-         if (a == b) {
+        if (a == b) {
             return 2 * (a + b);
         } else {
             return a + b;
         }
-         */
+        */
     }
-
 }
  

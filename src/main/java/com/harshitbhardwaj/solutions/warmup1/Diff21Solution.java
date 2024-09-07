@@ -15,9 +15,7 @@ public class Diff21Solution {
         } else {
             return Math.abs(n - 21);
         }
-         */
-
+        */
     }
-
 }
  

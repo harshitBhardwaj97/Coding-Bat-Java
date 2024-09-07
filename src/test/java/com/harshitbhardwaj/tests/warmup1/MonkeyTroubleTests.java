@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class MonkeyTroubleTests {
 
      /*
-     monkeyTrouble(true, true) → true
+    monkeyTrouble(true, true) → true
     monkeyTrouble(false, false) → true
     monkeyTrouble(true, false) → false
       */
