@@ -27,4 +27,3 @@ public class SumDoubleTests {
         Assert.assertEquals(SumDoubleSolution.sumDouble(2, 2), 8);
     }
 }
- 

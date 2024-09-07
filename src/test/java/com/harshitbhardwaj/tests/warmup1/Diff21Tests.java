@@ -27,4 +27,3 @@ public class Diff21Tests {
         Assert.assertEquals(Diff21Solution.diff21(21), 0);
     }
 }
- 

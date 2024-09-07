@@ -27,4 +27,3 @@ public class MonkeyTroubleTests {
         Assert.assertEquals(MonkeyTroubleSolution.monkeyTrouble(true, false), false);
     }
 }
- 

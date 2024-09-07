@@ -10,4 +10,3 @@ public class MonkeyTroubleSolution {
         return areBothSmiling || noneOfThemSmiling;
     }
 }
- 

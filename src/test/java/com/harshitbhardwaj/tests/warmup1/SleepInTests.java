@@ -27,4 +27,3 @@ public class SleepInTests {
         Assert.assertEquals(SleepInSolution.sleepIn(false, true), true);
     }
 }
- 
