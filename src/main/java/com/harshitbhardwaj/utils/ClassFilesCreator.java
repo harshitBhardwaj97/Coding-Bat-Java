@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class ClassFilesCreator {
 
     public static boolean createClass(String packageName, String className,
-                                      String methodText, String returnType) {
+                                      String problemUrl, String methodText, String returnType) {
         // Extract method signature
         String methodSignature = extractMethodSignature(methodText);
 
@@ -23,13 +23,14 @@ public class ClassFilesCreator {
                         import java.util.List;
                         import java.util.Map;
 
+                        // %s
                         public class %s {
 
                              %s  {
                                 %s
                             }
                         }""",
-                packageName, className, methodSignature, returnStatement
+                packageName, problemUrl, className, methodSignature, returnStatement
         );
 
         // Define file path

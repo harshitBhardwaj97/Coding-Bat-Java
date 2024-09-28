@@ -86,6 +86,11 @@ public class MethodNameFetcher {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ace_content")));
 
+        // To add the current problem's URL in the solution class
+        String problemUrl = driver.getCurrentUrl();
+
+        System.out.printf("Current problemUrl -> %s\n", problemUrl);
+
         Assert.assertEquals(driver.findElement(By.cssSelector("span.h2:nth-child(2)")).getText()
                 , currentProblemLink);
 
@@ -97,7 +102,7 @@ public class MethodNameFetcher {
         String returnType = extractReturnType(methodText);
 
         // Create solution file
-        ClassFilesCreator.createClass(section.toString(), solutionClassName, methodText, returnType);
+        ClassFilesCreator.createClass(section.toString(), solutionClassName, problemUrl, methodText, returnType);
 
         // Create test file
         TestClassCreator.generateTestClass(section.toString(), testClassName, solutionClassName);
