@@ -35,30 +35,29 @@ public class TestClassCreator {
 
         return String.format(
                 """
-                         package com.harshitbhardwaj.tests.%s;
-                            \s
-                         import com.harshitbhardwaj.solutions.%s.%s;
-                         import org.testng.Assert;
-                         import org.testng.annotations.Test;
-                            \s
-                         public class %s {
-                            \s
-                             @Test
-                             public void %sTestOne() {
-                                Assert.fail("Test not yet implemented.");
-                             }
-                            \s
-                             @Test
-                             public void %sTestTwo() {
-                                Assert.fail("Test not yet implemented.");
-                             }
-                            \s
-                             @Test
-                             public void %sTestThree() {
-                                Assert.fail("Test not yet implemented.");
-                             }
-                         }
-                        \s""",
+                        package com.harshitbhardwaj.tests.%s;
+                           \s
+                        import com.harshitbhardwaj.solutions.%s.%s;
+                        import org.testng.Assert;
+                        import org.testng.annotations.Test;
+                           \s
+                        public class %s {
+                           \s
+                            @Test
+                            public void %sTestOne() {
+                               Assert.fail("Test not yet implemented.");
+                            }
+                           \s
+                            @Test
+                            public void %sTestTwo() {
+                               Assert.fail("Test not yet implemented.");
+                            }
+                           \s
+                            @Test
+                            public void %sTestThree() {
+                               Assert.fail("Test not yet implemented.");
+                            }
+                        }""",
                 packageName, packageName, solutionClassName, testClassName,
                 baseName, baseName, baseName
         );

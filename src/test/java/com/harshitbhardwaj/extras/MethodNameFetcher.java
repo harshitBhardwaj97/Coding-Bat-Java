@@ -33,7 +33,10 @@ public class MethodNameFetcher {
 
     private static final Map<String, String> validLinks = new HashMap<>();
 
+    /*
     private final ValidLinkNames section = ValidLinkNames.warmup1;
+    */
+    private final ValidLinkNames section = ValidLinkNames.array1;
 
     @BeforeTest
     public void setup() {
@@ -83,7 +86,8 @@ public class MethodNameFetcher {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.ace_content")));
 
-        Assert.assertEquals(driver.findElement(By.cssSelector("span.h2:nth-child(2)")).getText(), currentProblemLink);
+        Assert.assertEquals(driver.findElement(By.cssSelector("span.h2:nth-child(2)")).getText()
+                , currentProblemLink);
 
         String methodText = driver.findElement(By.cssSelector("div.ace_content")).getText();
         System.out.println(methodText);

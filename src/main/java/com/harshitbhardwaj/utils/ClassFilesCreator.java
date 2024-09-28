@@ -7,7 +7,8 @@ import java.nio.file.Paths;
 
 public class ClassFilesCreator {
 
-    public static boolean createClass(String packageName, String className, String methodText, String returnType) {
+    public static boolean createClass(String packageName, String className,
+                                      String methodText, String returnType) {
         // Extract method signature
         String methodSignature = extractMethodSignature(methodText);
 
@@ -17,19 +18,17 @@ public class ClassFilesCreator {
         // Generate class content
         String classContent = String.format(
                 """
-                         package com.harshitbhardwaj.solutions.%s;
-                                                \s
-                         import java.util.List;
-                         import java.util.Map;
+                        package com.harshitbhardwaj.solutions.%s;
+                                               \s
+                        import java.util.List;
+                        import java.util.Map;
 
-                         public class %s {
+                        public class %s {
 
-                              %s  {
-                                 %s
-                             }
-
-                         }
-                        \s""",
+                             %s  {
+                                %s
+                            }
+                        }""",
                 packageName, className, methodSignature, returnStatement
         );
 
