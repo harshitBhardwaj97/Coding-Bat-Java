@@ -35,8 +35,9 @@ public class MethodNameFetcher {
 
     /*
     private final ValidLinkNames section = ValidLinkNames.warmup1;
-    */
     private final ValidLinkNames section = ValidLinkNames.array1;
+    */
+    private final ValidLinkNames section = ValidLinkNames.string1;
 
     @BeforeTest
     public void setup() {
