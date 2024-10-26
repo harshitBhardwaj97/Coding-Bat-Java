@@ -29,6 +29,7 @@ public class MethodNameFetcher {
 
     private static final String PROBLEM_LINK_XPATH = "//div[@class='tabin']//table/tbody/tr/td/a";
     private final By currentPageHeading = By.cssSelector("div.indent > span");
+    private final By descriptionParagraph = By.cssSelector(".max2");
     private final By problemLink = By.xpath(PROBLEM_LINK_XPATH);
 
     private static final Map<String, String> validLinks = new HashMap<>();
@@ -36,8 +37,9 @@ public class MethodNameFetcher {
     /*
     private final ValidLinkNames section = ValidLinkNames.warmup1;
     private final ValidLinkNames section = ValidLinkNames.array1;
-    */
     private final ValidLinkNames section = ValidLinkNames.string1;
+    */
+    private final ValidLinkNames section = ValidLinkNames.logic1;
 
     @BeforeTest
     public void setup() {
@@ -96,6 +98,7 @@ public class MethodNameFetcher {
                 , currentProblemLink);
 
         String methodText = driver.findElement(By.cssSelector("div.ace_content")).getText();
+        String problemDescription = driver.findElement(descriptionParagraph).getText();
         System.out.println(methodText);
         System.out.println("==============");
 
@@ -103,7 +106,8 @@ public class MethodNameFetcher {
         String returnType = extractReturnType(methodText);
 
         // Create solution file
-        ClassFilesCreator.createClass(section.toString(), solutionClassName, problemUrl, methodText, returnType);
+        ClassFilesCreator.createClass(section.toString(), solutionClassName, problemUrl,
+                problemDescription, methodText, returnType);
 
         // Create test file
         TestClassCreator.generateTestClass(section.toString(), testClassName, solutionClassName);

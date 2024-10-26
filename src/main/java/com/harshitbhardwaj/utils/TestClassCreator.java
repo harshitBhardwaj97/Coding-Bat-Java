@@ -43,6 +43,10 @@ public class TestClassCreator {
                            \s
                         public class %s {
                            \s
+                           /*
+                           Paste the test cases here
+                           */
+                           \s
                             @Test
                             public void %sTestOne() {
                                Assert.fail("Test not yet implemented.");
