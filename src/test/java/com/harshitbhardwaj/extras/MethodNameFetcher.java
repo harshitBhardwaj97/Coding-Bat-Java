@@ -4,6 +4,7 @@ import com.harshitbhardwaj.utils.ClassFilesCreator;
 import com.harshitbhardwaj.utils.DirectoryCreator;
 import com.harshitbhardwaj.utils.TestClassCreator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,6 +27,7 @@ public class MethodNameFetcher {
     private static final String BASE_URL = "https://codingbat.com/java/";
     private WebDriver driver;
     private WebDriverWait wait;
+    private JavascriptExecutor jsExecutor;
 
     private static final String PROBLEM_LINK_XPATH = "//div[@class='tabin']//table/tbody/tr/td/a";
     private final By currentPageHeading = By.cssSelector("div.indent > span");
@@ -34,18 +36,36 @@ public class MethodNameFetcher {
 
     private static final Map<String, String> validLinks = new HashMap<>();
 
+    private final String script = """
+            let brs2 = document.querySelectorAll('br');
+            let testCases = [];
+            for (let i = 1; i < 4; i++) {
+                let nextNode = brs2[i].nextSibling;
+                if (nextNode && nextNode.nodeType === 3 && nextNode.textContent.trim()) {
+                    let text = nextNode.textContent.trim();
+                    if (text !== "Shorter output" && text !== "Forget It!" && text !== "") {
+                        testCases.push(text);
+                    }
+                }
+            }
+            let testCasesText = testCases.join('\\n');
+            return testCasesText;
+            """;
+
     /*
     private final ValidLinkNames section = ValidLinkNames.warmup1;
     private final ValidLinkNames section = ValidLinkNames.array1;
     private final ValidLinkNames section = ValidLinkNames.string1;
-    */
     private final ValidLinkNames section = ValidLinkNames.logic1;
+    */
+    private final ValidLinkNames section = ValidLinkNames.map1;
 
     @BeforeTest
     public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        jsExecutor = (JavascriptExecutor) driver;
     }
 
     @Test
@@ -105,12 +125,18 @@ public class MethodNameFetcher {
         // Extract return type from method text
         String returnType = extractReturnType(methodText);
 
+        // Get the test cases text
+        String testCasesText = (String) jsExecutor.executeScript(script);
+        System.out.println("Test Cases:");
+        System.out.println(testCasesText);
+        System.out.println("==============");
+
         // Create solution file
         ClassFilesCreator.createClass(section.toString(), solutionClassName, problemUrl,
                 problemDescription, methodText, returnType);
 
         // Create test file
-        TestClassCreator.generateTestClass(section.toString(), testClassName, solutionClassName);
+        TestClassCreator.generateTestClass(section.toString(), testClassName, testCasesText, solutionClassName);
 
         driver.navigate().back();
     }
