@@ -57,8 +57,9 @@ public class MethodNameFetcher {
     private final ValidLinkNames section = ValidLinkNames.array1;
     private final ValidLinkNames section = ValidLinkNames.string1;
     private final ValidLinkNames section = ValidLinkNames.logic1;
-    */
     private final ValidLinkNames section = ValidLinkNames.map1;
+    */
+    private final ValidLinkNames section = ValidLinkNames.functional1;
 
     @BeforeTest
     public void setup() {
