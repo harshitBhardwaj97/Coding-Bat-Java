@@ -19,6 +19,7 @@ public class Links {
         linksMap.put(ValidLinkNames.logic1.toString(), "Logic-1");
         linksMap.put(ValidLinkNames.map1.toString(), "Map-1");
         linksMap.put(ValidLinkNames.functional1.toString(), "Functional-1");
+        linksMap.put(ValidLinkNames.ap1.toString(), "AP-1");
         validLinks = Collections.unmodifiableMap(linksMap);
     }
 
