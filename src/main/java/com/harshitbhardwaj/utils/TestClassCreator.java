@@ -54,21 +54,23 @@ public class TestClassCreator {
                             \s
                             @Test
                             public void %sTestOne() {
-                               Assert.fail("Test not yet implemented.");
+                               // Assert.assertEquals(%s.%s(),);
                             }
                            \s
                             @Test
                             public void %sTestTwo() {
-                               Assert.fail("Test not yet implemented.");
+                               // Assert.assertEquals(%s.%s(),);
                             }
                            \s
                             @Test
                             public void %sTestThree() {
-                               Assert.fail("Test not yet implemented.");
+                               // Assert.assertEquals(%s.%s(),);
                             }
                         }""",
                 packageName, packageName, solutionClassName, testClassName, formattedTests,
-                baseName, baseName, baseName
+                solutionClassName, solutionClassName, baseName,
+                solutionClassName, solutionClassName, baseName,
+                solutionClassName, solutionClassName, baseName
         );
     }
 

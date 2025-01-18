@@ -20,6 +20,7 @@ public class Links {
         linksMap.put(ValidLinkNames.map1.toString(), "Map-1");
         linksMap.put(ValidLinkNames.functional1.toString(), "Functional-1");
         linksMap.put(ValidLinkNames.ap1.toString(), "AP-1");
+        linksMap.put(ValidLinkNames.recursion1.toString(), "Recursion-1");
         validLinks = Collections.unmodifiableMap(linksMap);
     }
 
